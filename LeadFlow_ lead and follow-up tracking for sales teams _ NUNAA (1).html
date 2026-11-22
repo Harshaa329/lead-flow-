@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LeadFlow: lead and follow-up tracking for sales teams | NUNAA</title>
+<meta name="description" content="LeadFlow helps teams organize leads, assign follow-ups and see how opportunities are progressing in one shared workspace.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--bg:#f6fbf8;--surface:#fff;--ink:#12231f;--muted:#51625d;--line:#d5ded9;--brand:#1c6b58;--brand-ink:#fff;--late:#b4361f;--late-bg:#fbe9e4;--today:#8a5a00;--today-bg:#fcf0d2;--soon:#1c6b58;--soon-bg:#dff0ea;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Figtree,system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",Georgia,sans-serif;line-height:1.12;margin:0;letter-spacing:-.02em}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.logo{font:700 22px "Bricolage Grotesque",sans-serif;text-decoration:none}
+.logo span{color:var(--brand)}
+.btn{display:inline-block;background:var(--brand);color:var(--brand-ink);padding:13px 22px;border-radius:8px;font-weight:600;text-decoration:none;border:2px solid var(--brand)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--brand);outline-offset:3px}
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;padding:48px 0 72px}
+.hero h1{font-size:clamp(36px,5.2vw,58px);font-weight:700}
+.hero p.lead{font-size:20px;color:var(--muted);margin:20px 0 28px;max-width:34em}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.note{font-size:14px;color:var(--muted);margin-top:14px}
+.board{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 18px 40px -24px rgba(18,35,31,.5)}
+.board h3{font-size:16px;margin-bottom:12px;display:flex;justify-content:space-between}
+.board h3 small{font:500 13px Figtree,sans-serif;color:var(--muted)}
+.row{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:11px 0;border-top:1px solid var(--line)}
+.row b{font-weight:600}
+.row span.who{color:var(--muted);font-size:14px}
+.tag{align-self:center;grid-row:1/3;grid-column:2;font-size:13px;font-weight:600;padding:3px 10px;border-radius:99px}
+.late{background:var(--late-bg);color:var(--late)}.today{background:var(--today-bg);color:var(--today)}.soon{background:var(--soon-bg);color:var(--soon)}
+.cap{font-size:13px;color:var(--muted);margin-top:10px}
+section{padding:64px 0;border-top:1px solid var(--line)}
+section>.wrap>h2{font-size:clamp(28px,3.6vw,40px);max-width:18em;margin-bottom:12px}
+.sub{color:var(--muted);max-width:40em;margin:0 0 36px}
+.feats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.feat{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 18px;text-align:center}
+.feat h3{font-size:18px;margin:14px 0 4px}
+.feat p{margin:0;color:var(--muted);font-size:15px;line-height:1.4}
+.ic{display:grid;place-items:center;width:64px;height:64px;border-radius:20px;font-size:32px;margin:0 auto}
+.c1{background:#dff0ea}.c2{background:#fcf0d2}.c3{background:#e3ebfb}.c4{background:#fbe3ea}.c5{background:#e8e0f7}.c6{background:#fde6d3}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;padding:0;list-style:none;margin:0}
+.steps li{text-align:center}
+.steps h3{font-size:20px;margin:14px 0 4px}.steps p{margin:0;color:var(--muted)}
+.arrow{color:var(--brand);font-size:22px}
+.honest{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px 26px;max-width:46em}
+.honest h3{font-size:18px;margin-bottom:8px}.honest p{margin:0;color:var(--muted)}
+.cta{background:var(--ink);color:var(--bg);border-radius:18px;padding:52px 40px;text-align:left}
+.cta h2{font-size:clamp(28px,3.6vw,40px);max-width:16em}
+.cta p{color:inherit;opacity:.8;max-width:36em;margin:14px 0 26px}
+.cta .btn{background:var(--bg);color:var(--ink);border-color:var(--bg)}
+footer{padding:36px 0 48px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+@media (max-width:820px){.hero{grid-template-columns:1fr;padding-top:24px}.feats{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr}.cta{padding:36px 24px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="logo" href="#top">Lead<span>Flow</span></a>
+  <a class="btn ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSfghhM6hk1sTy_ngZq3ZAmYwQCOFOr1164KimKrYnJU0YJjwQ/viewform" target="_blank" rel="noopener">Request a demo</a>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div>
+    <h1>Know which lead to call next.</h1>
+    <p class="lead">LeadFlow is a lead and follow-up management tool for sales teams. Keep every lead, owner and follow-up date in one shared workspace.</p>
+    <div class="ctas">
+      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfghhM6hk1sTy_ngZq3ZAmYwQCOFOr1164KimKrYnJU0YJjwQ/viewform" target="_blank" rel="noopener">Request a demo</a>
+    </div>
+    <p class="note">Import your leads from a CSV file and start assigning follow-ups.</p>
+  </div>
+  <div>
+    <div class="board" role="img" aria-label="Illustration of a follow-up list with overdue, due today and upcoming leads">
+      <h3>Follow-ups <small>Sample data</small></h3>
+      <div class="row"><b>Meridian Traders</b><span class="tag late">Overdue</span><span class="who">Owner: Priya</span></div>
+      <div class="row"><b>Kavya Textiles</b><span class="tag today">Due today</span><span class="who">Owner: Arjun</span></div>
+      <div class="row"><b>Bluepeak Logistics</b><span class="tag soon">Upcoming</span><span class="who">Owner: Priya</span></div>
+      <div class="row"><b>Sundar &amp; Co.</b><span class="tag soon">Upcoming</span><span class="who">Owner: Meera</span></div>
+    </div>
+    <p class="cap">Illustration with sample names, not real customer data.</p>
+  </div>
+</div>
+
+<section id="features">
+  <h2>Everything your team needs to keep leads moving</h2>
+  <p class="sub">The daily basics, in one place.</p>
+  <div class="feats">
+    <div class="feat"><div class="ic c1" aria-hidden="true">🤝</div><h3>Shared workspace</h3><p>One lead list for the whole team.</p></div>
+    <div class="feat"><div class="ic c2" aria-hidden="true">💌</div><h3>Team invites</h3><p>Add teammates and set their roles.</p></div>
+    <div class="feat"><div class="ic c3" aria-hidden="true">📥</div><h3>CSV import</h3><p>Missing details get flagged first.</p></div>
+    <div class="feat"><div class="ic c4" aria-hidden="true">🙋</div><h3>Lead owners</h3><p>See who owns what.</p></div>
+    <div class="feat"><div class="ic c5" aria-hidden="true">📊</div><h3>Pipeline</h3><p>Leads by status, with estimated revenue.</p></div>
+    <div class="feat"><div class="ic c6" aria-hidden="true">⏰</div><h3>Follow-ups</h3><p>Upcoming, due today, overdue.</p></div>
+    <div class="feat"><div class="ic c1" aria-hidden="true">🧭</div><h3>Dashboard</h3><p>Activity and team view at a glance.</p></div>
+    <div class="feat"><div class="ic c4" aria-hidden="true">🔐</div><h3>Admin-only delete</h3><p>With a confirmation step.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>From spreadsheet to shared pipeline in three steps</h2>
+  <p class="sub"></p>
+  <ol class="steps">
+    <li><div class="ic c3" aria-hidden="true">📄</div><h3>Import</h3><p>Upload your CSV.</p></li>
+    <li><div class="ic c4" aria-hidden="true">🙋</div><h3>Assign</h3><p>Give each lead an owner.</p></li>
+    <li><div class="ic c6" aria-hidden="true">✅</div><h3>Follow up</h3><p>Work through what is due.</p></li>
+  </ol>
+</section>
+
+<section>
+  <h2>Built for teams that are growing</h2>
+  <p class="sub">One place for leads, owners and next steps. Sign-in access, with records scoped to your workspace.</p>
+  <div class="honest">
+    <h3>What to expect today</h3>
+    <p>Import supports CSV files. LeadFlow tracks follow-ups; it does not send messages for you.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="cta">
+    <h2>See LeadFlow with your own leads</h2>
+    <p>Tell us about your team and we will show you around.</p>
+    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfghhM6hk1sTy_ngZq3ZAmYwQCOFOr1164KimKrYnJU0YJjwQ/viewform" target="_blank" rel="noopener">Request a demo</a>
+  </div>
+</section>
+</main>
+
+<footer><span>LeadFlow by NUNAA</span><span>Chennai, India</span></footer>
+</div>
+</body>
+</html>
